@@ -1,0 +1,13 @@
+{
+	"name": "ls_formula1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-1369421880993443.3.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/bd88183a-f54b-44a1-b2d5-da0945e0b76b/resourceGroups/databricks-course-rg/providers/Microsoft.Databricks/workspaces/databricks-ws",
+			"existingClusterId": "0911-161120-iykes83y"
+		}
+	}
+}
