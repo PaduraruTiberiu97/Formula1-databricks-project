@@ -5,8 +5,14 @@
 		"factoryName": {
 			"value": "databricks-formula1-data-factory"
 		},
+		"ls_formula1dl_storage_accountKey": {
+			"value": ""
+		},
 		"ls_formula1_properties_typeProperties_existingClusterId": {
 			"value": "0911-161120-iykes83y"
+		},
+		"ls_formula1dl_storage_properties_typeProperties_url": {
+			"value": "https://formulaonedatalk.dfs.core.windows.net/"
 		}
 	}
 }
