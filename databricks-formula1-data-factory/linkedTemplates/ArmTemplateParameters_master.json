@@ -14,6 +14,9 @@
 		"ls_formula1dl_storage_properties_typeProperties_url": {
 			"value": "https://formulaonedatalk.dfs.core.windows.net/"
 		},
+		"tr_process_formula1_data_properties_pipeline_parameters_p_window_end_date": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
 		"containerUri": {
 			"value": ""
 		},

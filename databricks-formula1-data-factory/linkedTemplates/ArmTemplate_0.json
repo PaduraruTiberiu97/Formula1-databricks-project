@@ -18,6 +18,10 @@
 		"ls_formula1dl_storage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://formulaonedatalk.dfs.core.windows.net/"
+		},
+		"tr_process_formula1_data_properties_pipeline_parameters_p_window_end_date": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
@@ -708,6 +712,40 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pl_ingest_formula1_data')]",
 				"[concat(variables('factoryId'), '/pipelines/pl_transform_formula1_data')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tr_process_formula1_data')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pl_process_formula1_data",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"p_window_end_date": "[parameters('tr_process_formula1_data_properties_pipeline_parameters_p_window_end_date')]"
+					}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 168,
+					"startTime": "2021-03-14T22:00:00Z",
+					"endTime": "2021-04-25T22:00:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_process_formula1_data')]"
 			]
 		}
 	]
